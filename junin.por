@@ -1,8 +1,20 @@
 programa {
   funcao inicio() {
-    real salarioMensal = 5000, diasTrabalhados = 20, valorDia, valorSemana
-    valorDia = salarioMensal / diasTrabalhados
-    valorSemana = valorDia * 5
-    escreva("O valor por dia trabalhado será: R$",valorDia,"\nO valor por semana trabalhada será: R$",valorSemana)
+    real salario, salarioDiario, salarioSemanal
+    inteiro dias
+
+    escreva("Digite seu salário: R$")
+    leia(salario)
+
+    escreva("\nDigite a quantidade de dias trabalhados no mês: ")
+    leia(dias)
+
+    salarioDiario = salario / dias
+
+    salarioSemanal = salarioDiario * 5
+
+    escreva("\nSeu salário diário é de: R$", salarioDiario)
+
+    escreva("\nSeu salário semanal é de: R$",salarioSemanal,"\n")
   }
 }
