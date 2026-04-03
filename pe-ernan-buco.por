@@ -1,8 +1,19 @@
 programa {
   funcao inicio() {
-    real custos_mensais = 5000, dizimo = 100, total, necessario
-    total = dizimo * 30
-    necessario = custos_mensais - total
-    escreva("Para completar os custos mensais será necessário: R$", necessario)
+    real custoMensal, doacoesDia, doacoesMes, compCustosMensais
+
+    escreva("Digite o custo mensal da igreja: R$")
+    leia(custoMensal)
+
+    escreva("\nDigite o valor recebido de doaçoes no dia: R$")
+    leia(doacoesDia)
+
+    doacoesMes = doacoesDia * 30
+
+    compCustosMensais = custoMensal - doacoesMes
+
+    se(compCustosMensais < 0) {compCustosMensais = compCustosMensais * -1 escreva("\nA igreja terá lucro de R$",compCustosMensais,"\n")}
+      senao se(compCustosMensais > 0) {escreva("\nA igreja precisará de R$",compCustosMensais," para completar os custos mensais.\n")}
+        senao {escreva("\nA igreja não terá lucro e nem prejuizo.\n")}
   }
 }
