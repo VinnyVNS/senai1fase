@@ -1,6 +1,9 @@
 programa {
   funcao inicio() {
-    real pesoGramas, valorQuilo = 10, precoTotal
+    real pesoGramas, valorQuilo, precoTotal
+
+    escreva("Digite o valor do quilo: R$")
+    leia(valorQuilo)
 
     escreva("Digite o peso da ração em gramas: ")
     leia(pesoGramas)
