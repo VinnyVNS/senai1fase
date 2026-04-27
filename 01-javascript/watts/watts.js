@@ -63,7 +63,7 @@ function calculoWatts(){
         listaOhms.push(ohms)
     }
 
-    if(circuito === 1){
+    if(circuito == 1){
         for(let i = 0; i < listaOhms.length; i++){
             req = req + listaOhms[i]
         }
