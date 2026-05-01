@@ -1,13 +1,20 @@
 function calcularViagem(){
+    
     document.getElementById("resultado").innerHTML = ``
     document.getElementById("resultado2").innerHTML = ``
 
     let marujos, comida, comidaPorMarujo, comidaFaltante, dias, diasExtras, marujosFaltante
     marujos = prompt("Digite o numero de marujos:")
+    if(marujos == null){
+        return
+    }
     marujos = Number(marujos)
 
     if(marujos >= 10){
         comida = prompt("Digite a quantidade de comida em kg:")
+        if(comida == null){
+            return
+        }
         comida = Number(comida)
 
         comidaPorMarujo = comida / marujos

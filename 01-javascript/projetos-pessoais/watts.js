@@ -1,4 +1,5 @@
 function calculoWatts(){
+    
     let circuito, volts, resistencias, listaOhms = [], corrente, req = 0, watts, kw, kwh, kwhConfirmar
 
     circuito = prompt("1 - Circuito Em Série\n2 - Circuito Paralelo\nDigite o numero corresponde ao circuito")

@@ -1,4 +1,5 @@
 function calcularBrique(){
+    
     document.getElementById("resultado").innerHTML = ``
     document.getElementById("resultado2").innerHTML = ``
     
