@@ -1,4 +1,4 @@
-let resultado = document.getElementById("resultado"), resultado2 = document.getElementById("resultado2")
+let resultado = document.getElementById("resultado"), resultado2 = document.getElementById("resultado2"), resultado3 = document.getElementById("resultado3")
 
 function calcularViagem(){
     
@@ -303,5 +303,114 @@ function verificarAnoBissexto(){
     }
     else{
         resultado.innerHTML = `${ano} não é bissexto.`
+    }
+}
+
+
+function calcularDistancia(){
+
+    resultado.innerHTML = ``
+    resultado2.innerHTML = ``
+
+    let distancia, velocidade = 300000, tempo
+
+    distancia = Number(prompt(`Digite a distancia de sua viagem em km:`))
+
+    tempo = distancia / velocidade
+
+    if(tempo > 0 && tempo < 60){
+        if(tempo == 1){
+            resultado.innerHTML = `O tempo de viagem será de ${tempo} segundo`
+        }
+        else{
+            resultado.innerHTML = `O tempo de viagem será de ${tempo} segundos`
+        }
+    }
+    else if(tempo >= 60 && tempo < 3600){
+        tempo = tempo / 60
+        if(tempo == 1){
+            resultado.innerHTML = `O tempo de viagem será de ${tempo} minuto`
+        }
+        else{
+            resultado.innerHTML = `O tempo de viagem será de ${tempo} minutos`
+        }
+    }
+    else if(tempo >= 3600 && tempo < 86400){
+        tempo = tempo / 3600
+        if(tempo == 1){
+            resultado.innerHTML = `O tempo de viagem será de ${tempo} hora`
+        }
+        else{
+            resultado.innerHTML = `O tempo de viagem será de ${tempo} horas`
+        }
+    }
+    else if(tempo >= 86400 && tempo < 2592000){
+        tempo = tempo / 86400
+        if(tempo == 1){
+            resultado.innerHTML = `O tempo de viagem será de ${tempo} dia`
+        }
+        else{
+            resultado.innerHTML = `O tempo de viagem será de ${tempo} dias`
+        }
+    }
+    else if(tempo >= 2592000 && tempo < 31104000){
+        tempo = tempo / 2592000
+        if(tempo == 1){
+            resultado.innerHTML = `O tempo de viagem será de ${tempo} mes`
+        }
+        else{
+            resultado.innerHTML = `O tempo de viagem será de ${tempo} meses`
+        }
+    }
+    else{
+        tempo = tempo / 31104000
+        if(tempo == 1){
+            resultado.innerHTML = `O tempo de viagem será de ${tempo} ano`
+        }
+        else{
+            resultado.innerHTML = `O tempo de viagem será de ${tempo} anos`
+        }
+    }
+}
+
+
+function verificarEmprestimo(){
+
+    resultado.innerHTML = ``
+    resultado2.innerHTML = ``
+
+    let salario, emprestimo, prestacoes, valorPrestacao, porcentagemSalario, valorFinal, valorFinalPrestacao, consignado
+
+    salario = Number(prompt(`Digite o valor do salario:`))
+    emprestimo = Number(prompt(`Digite o valor do emprestimo:`))
+    prestacoes = Number(prompt(`Digite em quantas prestaçoes vai pagar:`))
+    consignado = Number(prompt(`Digite se o emprestimo sera consignado:\n1 - Sim\n2 - Não`))
+
+    valorPrestacao = emprestimo / prestacoes
+
+    porcentagemSalario = (valorPrestacao / salario) * 100
+
+    valorFinal = emprestimo * (1 + 0.0595) ** prestacoes
+    
+    valorFinalPrestacao = valorFinal / prestacoes
+
+    if(porcentagemSalario > 30 || porcentagemSalario <= 0){
+        resultado.innerHTML = `O emprestimo não pode ser concedido.`
+    }
+    else{
+        if(consignado == 1){
+            valorFinal = emprestimo * (1 + 0.02) ** prestacoes
+            valorFinalPrestacao = valorFinal / prestacoes
+            resultado.innerHTML = `O emprestimo pode ser concedido.`
+            resultado2.innerHTML = `<br>Prestação: R$${valorFinalPrestacao.toFixed(2)}`
+            resultado3.innerHTML = `<br>Valor total: R$${valorFinal.toFixed(2)}`
+        }
+        else{
+            valorFinal = emprestimo * (1 + 0.08) ** prestacoes
+            valorFinalPrestacao = valorFinal / prestacoes
+            resultado.innerHTML = `O emprestimo pode ser concedido.<br>`
+            resultado2.innerHTML = `Prestação: R$${valorFinalPrestacao.toFixed(2)}<br>`
+            resultado3.innerHTML = `Valor total: R$${valorFinal.toFixed(2)}`
+        }
     }
 }

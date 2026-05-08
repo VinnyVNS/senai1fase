@@ -85,14 +85,14 @@ function calcularCircuitoSerie(){
 
         kwh = kw * horas
 
-        resultado.innerHTML = `Seu circuito será de ${watts.toFixed(4)} Watts.<br>`
-        resultado2.innerHTML = `O consumo por hora será de ${kw.toFixed(4)} kW.<br>`
-        resultado3.innerHTML = `O consumo nas ${horas} horas será de ${kwh.toFixed(4)} kWh.`
+        resultado.innerHTML = `Seu circuito será de ${+watts.toFixed(4)} Watts.<br>`
+        resultado2.innerHTML = `O consumo por hora será de ${+kw.toFixed(4)} kW.<br>`
+        resultado3.innerHTML = `O consumo nas ${horas} horas será de ${+kwh.toFixed(4)} kWh.`
         
     }
     else{
-        resultado.innerHTML = `Seu circuito será de ${watts.toFixed(2)} Watts.`
-        resultado2.innerHTML = `O consumo por hora será de ${kw.toFixed(2)} kW.`
+        resultado.innerHTML = `Seu circuito será de ${+watts.toFixed(2)} Watts.`
+        resultado2.innerHTML = `O consumo por hora será de ${+kw.toFixed(2)} kW.`
     }
 }
 
@@ -178,12 +178,12 @@ function calcularCircuitoParalelo(){
 
         kwh = kw * horas
         
-        resultado.innerHTML = `Seu circuito será de ${watts.toFixed(4)} Watts.<br>`
-        resultado2.innerHTML = `O consumo por hora será de ${kw.toFixed(4)} kW.<br>`
-        resultado3.innerHTML = `O consumo nas ${horas} horas será de ${kwh.toFixed(4)} kWh.`
+        resultado.innerHTML = `Seu circuito será de ${+watts.toFixed(4)} Watts.<br>`
+        resultado2.innerHTML = `O consumo por hora será de ${+kw.toFixed(4)} kW.<br>`
+        resultado3.innerHTML = `O consumo nas ${horas} horas será de ${+kwh.toFixed(4)} kWh.`
     }
     else{
-        resultado.innerHTML = `Seu circuito será de ${watts.toFixed(2)} Watts.`
-        resultado2.innerHTML = `O consumo por hora será de ${kw.toFixed(2)} kW.`
+        resultado.innerHTML = `Seu circuito será de ${+watts.toFixed(2)} Watts.`
+        resultado2.innerHTML = `O consumo por hora será de ${+kw.toFixed(2)} kW.`
     }    
 }
