@@ -287,11 +287,13 @@ function verificarAnoBissexto(){
     resultado.innerHTML = ``
     resultado2.innerHTML = ``
 
-    let ano, bissexto
+    let ano, bissexto, checkano00
 
     ano = Number(prompt(`Digite o ano:`))
 
-    if(ano == 1000 || ano == 2000 || ano == 3000){
+    checkano00 = ano % 100
+
+    if(checkano00 == 0){
         bissexto = ano % 400
     }
     else{
@@ -384,33 +386,55 @@ function verificarEmprestimo(){
     salario = Number(prompt(`Digite o valor do salario:`))
     emprestimo = Number(prompt(`Digite o valor do emprestimo:`))
     prestacoes = Number(prompt(`Digite em quantas prestaçoes vai pagar:`))
-    consignado = Number(prompt(`Digite se o emprestimo sera consignado:\n1 - Sim\n2 - Não`))
+    consignado = confirm(`O empréstimo será consignado?`)
 
     valorPrestacao = emprestimo / prestacoes
 
     porcentagemSalario = (valorPrestacao / salario) * 100
 
-    valorFinal = emprestimo * (1 + 0.0595) ** prestacoes
-    
-    valorFinalPrestacao = valorFinal / prestacoes
-
     if(porcentagemSalario > 30 || porcentagemSalario <= 0){
         resultado.innerHTML = `O emprestimo não pode ser concedido.`
     }
     else{
-        if(consignado == 1){
+        if(consignado == true){
             valorFinal = emprestimo * (1 + 0.02) ** prestacoes
-            valorFinalPrestacao = valorFinal / prestacoes
-            resultado.innerHTML = `O emprestimo pode ser concedido.`
-            resultado2.innerHTML = `<br>Prestação: R$${valorFinalPrestacao.toFixed(2)}`
-            resultado3.innerHTML = `<br>Valor total: R$${valorFinal.toFixed(2)}`
-        }
-        else{
-            valorFinal = emprestimo * (1 + 0.08) ** prestacoes
             valorFinalPrestacao = valorFinal / prestacoes
             resultado.innerHTML = `O emprestimo pode ser concedido.<br>`
             resultado2.innerHTML = `Prestação: R$${valorFinalPrestacao.toFixed(2)}<br>`
             resultado3.innerHTML = `Valor total: R$${valorFinal.toFixed(2)}`
         }
+        else{
+            valorFinal = emprestimo * (1 + 0.05) ** prestacoes
+            valorFinalPrestacao = valorFinal / prestacoes
+            resultado.innerHTML = `O emprestimo pode ser concedido.<br>`
+            resultado2.innerHTML = `Prestação: R$${valorFinalPrestacao.toFixed(2)}<br>`
+            resultado3.innerHTML = `Valor total: R$${valorFinal.toFixed(2)}`
+        }
+    }
+}
+
+
+function verificarShowSarumano(){
+
+    resultado.innerHTML = ``
+    resultado2.innerHTML = ``
+    resultado3.innerHTML = ``
+
+    let figurinoCompleto, somFuncionando
+
+    figurinoCompleto = confirm("O figurino está completo?")
+    somFuncionando = confirm("O som está funcionando?")
+
+    if(figurinoCompleto == true && somFuncionando == true){
+        resultado.innerHTML = `Palco liberado para Sarumano! Luzes, câmera, ilusão!`
+    }
+    else if(figurinoCompleto == true && somFuncionando == false){
+        resultado.innerHTML = `Sem som. Realizar apresentação alternativa no salão.`
+    }
+    else if(figurinoCompleto == false && somFuncionando == true){
+        resultado.innerHTML = `Faltando parte do figurino. Te vira no improviso!`
+    }
+    else{
+        resultado.innerHTML = `Apresentação cancelada. Hora da mágica de desaparecer…`
     }
 }
