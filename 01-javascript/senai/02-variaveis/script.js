@@ -122,3 +122,105 @@ function resetarPontos(){
     document.getElementById("d12").innerHTML = `D12: ${d12C}`
     document.getElementById("d20").innerHTML = `D20: ${d20C}`
 }
+
+let dinoEscolhido = 0
+let dinoSorteado = 0
+let valorTotal = 0
+
+function sortear(){
+    let valorAposta = Number(document.getElementById("valorAposta-ipt").value)
+    let sorteio = Math.ceil(Math.random() * 10)
+    dinoSorteado = sorteio
+
+    if(dinoEscolhido == dinoSorteado){
+        let valorGanho = valorAposta * 2
+        let valorLimite = (valorGanho/valorTotal) * 100
+        if(valorLimite < 20){
+            alert("Voce ganhou")
+            valorTotal = valorTotal - valorGanho
+            document.getElementById("valorFinal-otp").innerHTML = `Valor final: R$${valorGanho}`
+            document.getElementById("valorTotalTeste-otp").innerHTML = `${valorTotal}`
+        }
+        else{
+            alert("ERRO!")
+        }
+    }
+    else{
+        alert("Voce perdeu")
+        valorTotal = valorTotal + valorAposta
+        document.getElementById("valorFinal-otp").innerHTML = `Valor final: R$0`
+        document.getElementById("valorTotalTeste-otp").innerHTML = `${valorTotal}`
+    }
+
+    if(dinoSorteado == 1){
+        document.getElementById("dinoSorteado-otp").innerHTML = `Dino sorteado: Espinossauro`
+    }
+    else if(dinoSorteado == 2){
+        document.getElementById("dinoSorteado-otp").innerHTML = `Dino sorteado: T-Rex`
+    }
+    else if(dinoSorteado == 3){
+        document.getElementById("dinoSorteado-otp").innerHTML = `Dino sorteado: Braquiossauro`
+    }
+    else if(dinoSorteado == 4){
+        document.getElementById("dinoSorteado-otp").innerHTML = `Dino sorteado: Velocirraptor`
+    }
+    else if(dinoSorteado == 5){
+        document.getElementById("dinoSorteado-otp").innerHTML = `Dino sorteado: Estegossauro`
+    }
+    else if(dinoSorteado == 6){
+        document.getElementById("dinoSorteado-otp").innerHTML = `Dino sorteado: Triceratopo`
+    }
+    else if(dinoSorteado == 7){
+        document.getElementById("dinoSorteado-otp").innerHTML = `Dino sorteado: Anquilossauro`
+    }
+    else if(dinoSorteado == 8){
+        document.getElementById("dinoSorteado-otp").innerHTML = `Dino sorteado: Parassaurolofo`
+    }
+    else if(dinoSorteado == 9){
+        document.getElementById("dinoSorteado-otp").innerHTML = `Dino sorteado: Alossauro`
+    }
+    else if(dinoSorteado == 10){
+        document.getElementById("dinoSorteado-otp").innerHTML = `Dino sorteado: Carnotauro`
+    }
+}
+
+function espino(){
+    dinoEscolhido = 1
+    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Espinossauro`
+}
+function tRex(){
+    dinoEscolhido = 2
+    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: T-Rex`
+}
+function braquio(){
+    dinoEscolhido = 3
+    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Braquiossauro`
+}
+function veloci(){
+    dinoEscolhido = 4
+    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Velocirraptor`
+}
+function estego(){
+    dinoEscolhido = 5
+    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Estegossauro`
+}
+function trice(){
+    dinoEscolhido = 6
+    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Triceratopo`
+}
+function anquilo(){
+    dinoEscolhido = 7
+    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Anquilossauro`
+}
+function para(){
+    dinoEscolhido = 8
+    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Parassaurolofo`
+}
+function alo(){
+    dinoEscolhido = 9
+    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Alossauro`
+}
+function carno(){
+    dinoEscolhido = 10
+    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Carnotauro`
+}
