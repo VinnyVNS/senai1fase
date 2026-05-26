@@ -44,27 +44,33 @@
         <output id="d12">D12: 0</output>
         <output id="d20">D20: 0</output>
     <hr>
+        JOGO DO DINO
+        <button onclick="mostrarValorTotal()">#</button>
+        <br><br>
         <input type="text" id="valorAposta-ipt">
         <button onclick="sortear()">Sortear</button>
         <br><br>
-        <button onclick="espino()">Espinossauro</button>
-        <button onclick="tRex()">T-Rex</button>
-        <button onclick="braquio()">Braquiossauro</button>
-        <button onclick="veloci()">Velocirraptor</button>
-        <button onclick="estego()">Estegossauro</button>
-        <button onclick="trice()">Triceratopo</button>
-        <button onclick="anquilo()">Anquilossauro</button>
-        <button onclick="para()">Parassaurolofo</button>
-        <button onclick="alo()">Alossauro</button>
-        <button onclick="carno()">Carnotauro</button>
+        <button onclick="escolherDino(1)">Espinossauro</button>
+        <button onclick="escolherDino(2)">T-Rex</button>
+        <button onclick="escolherDino(3)">Braquiossauro</button>
+        <button onclick="escolherDino(4)">Velocirraptor</button>
+        <button onclick="escolherDino(5)">Estegossauro</button>
+        <button onclick="escolherDino(6)">Triceratopo</button>
+        <button onclick="escolherDino(7)">Anquilossauro</button>
+        <button onclick="escolherDino(8)">Parassaurolofo</button>
+        <button onclick="escolherDino(9)">Alossauro</button>
+        <button onclick="escolherDino(10)">Carnotauro</button>
+        <button onclick="escolherDino(11)">Aleatorio</button>
         <br><br>
         <output id="dinoEscolhido-otp">Seu dino: </output>
         <br><br>
         <output id="dinoSorteado-otp">Dino sorteado: </output>
         <br><br>
-        <output id="valorFinal-otp">Valor final: R$</output>
+        <output id="valorFinal-otp"></output>
         <br><br>
         <output id="valorTotalTeste-otp"></output>
+        <br><br>
+        <output id="valorCaixa-otp">Valor em caixa: R$0</output>
     <script src="script.js"></script>
 </body>
 </html>

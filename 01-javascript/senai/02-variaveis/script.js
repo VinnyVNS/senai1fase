@@ -126,30 +126,42 @@ function resetarPontos(){
 let dinoEscolhido = 0
 let dinoSorteado = 0
 let valorTotal = 0
+let valorCaixa = 0
 
 function sortear(){
-    let valorAposta = Number(document.getElementById("valorAposta-ipt").value)
-    let sorteio = Math.ceil(Math.random() * 10)
-    dinoSorteado = sorteio
-
-    if(dinoEscolhido == dinoSorteado){
-        let valorGanho = valorAposta * 2
-        let valorLimite = (valorGanho/valorTotal) * 100
-        if(valorLimite < 20){
-            alert("Voce ganhou")
-            valorTotal = valorTotal - valorGanho
-            document.getElementById("valorFinal-otp").innerHTML = `Valor final: R$${valorGanho}`
-            document.getElementById("valorTotalTeste-otp").innerHTML = `${valorTotal}`
-        }
-        else{
-            alert("ERRO!")
-        }
+    if(dinoEscolhido == 0){
+        alert("Por favor escolha um dino!")
     }
     else{
-        alert("Voce perdeu")
-        valorTotal = valorTotal + valorAposta
-        document.getElementById("valorFinal-otp").innerHTML = `Valor final: R$0`
-        document.getElementById("valorTotalTeste-otp").innerHTML = `${valorTotal}`
+        let valorAposta = Number(document.getElementById("valorAposta-ipt").value)
+        if(valorAposta == 0){
+            alert("Por favor aposte um valor!")
+        }
+        else{
+            let sorteio = Math.ceil(Math.random() * 10)
+            dinoSorteado = sorteio
+
+            if(dinoEscolhido == dinoSorteado){
+                let valorGanho = valorAposta * 2
+                let valorLimite = (valorGanho/valorTotal) * 100
+                if(valorLimite < 20){
+                    alert("Voce ganhou")
+                    valorTotal = valorTotal - valorGanho
+                    valorCaixa = valorCaixa + valorGanho
+                    document.getElementById("valorFinal-otp").innerHTML = `Valor ganho: R$${valorGanho}`
+                    document.getElementById("valorCaixa-otp").innerHTML = `Valor em caixa: R$${valorCaixa}`
+                }
+                else{
+                    alert("ERRO!")
+                }
+            }
+            else{
+                alert("Voce perdeu")
+                valorTotal = valorTotal + valorAposta
+                document.getElementById("valorFinal-otp").innerHTML = `Valor ganho: R$0`
+                document.getElementById("valorCaixa-otp").innerHTML = `Valor em caixa: R$${valorCaixa}`
+            }
+        }
     }
 
     if(dinoSorteado == 1){
@@ -184,43 +196,51 @@ function sortear(){
     }
 }
 
-function espino(){
-    dinoEscolhido = 1
-    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Espinossauro`
+function escolherDino(numeroDino){
+    dinoEscolhido = numeroDino
+    if(dinoEscolhido == 11){
+        dinoEscolhido = Math.ceil(Math.random() * 10)
+    }
+    let dinoEscolhidoNome = ``
+    if(dinoEscolhido == 1){
+        dinoEscolhidoNome = `Seu dino: Espinossauro`
+    }
+    else if(dinoEscolhido == 2){
+        dinoEscolhidoNome = `Seu dino: T-rex`
+    }
+    else if(dinoEscolhido == 3){
+        dinoEscolhidoNome = `Seu dino: Braquiossauro`
+    }
+    else if(dinoEscolhido == 4){
+        dinoEscolhidoNome = `Seu dino: Velocirraptor`
+    }
+    else if(dinoEscolhido == 5){
+        dinoEscolhidoNome = `Seu dino: Estegossauro`
+    }
+    else if(dinoEscolhido == 6){
+        dinoEscolhidoNome = `Seu dino: Triceratopo`
+    }
+    else if(dinoEscolhido == 7){
+        dinoEscolhidoNome = `Seu dino: Anquilossauro`
+    }
+    else if(dinoEscolhido == 8){
+        dinoEscolhidoNome = `Seu dino: Parassaurolofo`
+    }
+    else if(dinoEscolhido == 9){
+        dinoEscolhidoNome = `Seu dino: Alossauro`
+    }
+    else if(dinoEscolhido == 10){
+        dinoEscolhidoNome = `Seu dino: Carnotauro`
+    }
+    document.getElementById("dinoEscolhido-otp").innerHTML = `${dinoEscolhidoNome}`
 }
-function tRex(){
-    dinoEscolhido = 2
-    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: T-Rex`
-}
-function braquio(){
-    dinoEscolhido = 3
-    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Braquiossauro`
-}
-function veloci(){
-    dinoEscolhido = 4
-    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Velocirraptor`
-}
-function estego(){
-    dinoEscolhido = 5
-    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Estegossauro`
-}
-function trice(){
-    dinoEscolhido = 6
-    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Triceratopo`
-}
-function anquilo(){
-    dinoEscolhido = 7
-    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Anquilossauro`
-}
-function para(){
-    dinoEscolhido = 8
-    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Parassaurolofo`
-}
-function alo(){
-    dinoEscolhido = 9
-    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Alossauro`
-}
-function carno(){
-    dinoEscolhido = 10
-    document.getElementById("dinoEscolhido-otp").innerHTML = `Seu dino: Carnotauro`
+
+function mostrarValorTotal(){
+    let senha = prompt("Digite a senha:")
+    if(senha == "0171"){
+        alert("Valor Total: R$"+ valorTotal)
+    }
+    else{
+        alert("Senha invalida!")
+    }
 }
