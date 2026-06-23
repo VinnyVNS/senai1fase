@@ -71,6 +71,22 @@
 
 // document.getElementById("texto").innerHTML += `${fator} <br>`
 
+for(i = 2; i <= 50; i++){
+    let primo = true
+
+    for(y = 2; y < i; y++){
+        let valor = i % y
+
+        if(valor === 0){
+            primo = false
+        }
+    }
+
+    if(primo === true){
+        document.getElementById("texto").innerHTML += `${i} <br>`
+    }
+}
+
 // ==============================================================================================
 
 // let soma = 0
