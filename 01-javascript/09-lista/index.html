@@ -12,7 +12,12 @@
     </header>
 
     <main>
-        <button onclick="addNome()">Adicionar seu Nome</button>
+        <form id="form">
+            <input type="text" id="inputNome">
+            <button onclick="addNome()">Adicionar seu Nome</button>
+            
+        </form>
+        <select name="nomes" id="seletor"></select>
         <button onclick="verificarPos()">Verificar sua posição na fila</button>
         <div id="lista"></div>
         <div id="resultado"></div>
