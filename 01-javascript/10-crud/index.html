@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Crud</title>
+</head>
+<body>
+
+    <header>
+        <h1><strong>Crud</strong></h1>
+    </header>
+
+    <main>
+        <form id="formulario">
+            <p>Nome</p>
+            <input id="nomeInp" type="text">
+            <br>
+            <p>Altura</p>
+            <input id="alturaInp" type="number">
+            <br>
+            <p>Cor</p>
+            <input id="corInp" type="text">
+            <br>
+            <p>Custo</p>
+            <input id="custoInp" type="number">
+            <br>
+            <button onclick="enviar()">Enviar</button>
+        </form>
+        
+        <button onclick="verDinos()">Ver Todos os Dinos</button>
+
+        <div id="resultado"></div>
+        
+
+
+        <script src="script.js"></script>
+    </main>
+    
+</body>
+</html>
