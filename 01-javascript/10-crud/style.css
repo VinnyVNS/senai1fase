@@ -102,13 +102,23 @@ button:active {
     background-color: var(--primary-hover);
 }
 
-main > button {
+.remover {
+    background-color: red;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.remover:hover {
+    background-color: rgb(150, 0, 0);
+}
+
+.ver {
     background-color: var(--secondary-color);
     color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-main > button:hover {
+.ver:hover {
     background-color: var(--secondary-hover);
 }
 
@@ -147,4 +157,8 @@ main > button:hover {
 
 .dinoLista br {
     display: none;
+}
+
+.avisoDeletar {
+    color: red;
 }

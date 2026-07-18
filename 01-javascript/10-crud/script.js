@@ -15,12 +15,7 @@ function enviar(){
 
     dinos.push(novoDino)
 
-    document.getElementById("nomeInp").value = ``
-    document.getElementById("alturaInp").value = ``
-    document.getElementById("corInp").value = ``
-    document.getElementById("custoInp").value = ``
-
-    document.getElementById("nomeInp").focus()
+    limparForm()
 }
 
 function verDinos(){
@@ -40,8 +35,29 @@ function verDinos(){
         `
         numeroDino++
 
-        document.getElementById("resultado").innerHTML = resultado
     }
 
-    
+    document.getElementById("resultado").innerHTML = resultado
+}
+
+function removerDino(){
+    let nomeDeletar = document.getElementById("nomeInp").value
+    for(let i = 0; i < dinos.length; i++){
+        if(dinos[i].nome.toLowerCase() == nomeDeletar.toLowerCase()){
+            dinos.splice(i, 1)
+
+            document.getElementById("resultado").innerHTML = `<p class="avisoDeletar">Dino ${nomeDeletar} removido.</p>`
+
+            limparForm()
+        }
+    }
+}
+
+function limparForm(){
+    document.getElementById("nomeInp").value = ``
+    document.getElementById("alturaInp").value = ``
+    document.getElementById("corInp").value = ``
+    document.getElementById("custoInp").value = ``
+
+    document.getElementById("nomeInp").focus()
 }
