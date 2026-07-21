@@ -1,4 +1,7 @@
-const dinos = []
+let dinos = []
+
+carregarDados()
+
 const formulario = document.getElementById("formulario")
 
 function enviar(){
@@ -15,7 +18,19 @@ function enviar(){
 
     dinos.push(novoDino)
 
+    salvarDados()
+
+    verDinos()
+
     limparForm()
+}
+
+function salvarDados(){
+    localStorage.setItem(`Dinos`, JSON.stringify(dinos))
+}
+
+function carregarDados(){
+    dinos = JSON.parse(localStorage.getItem(`Dinos`))
 }
 
 function verDinos(){
@@ -46,9 +61,14 @@ function removerDino(){
         if(dinos[i].nome.toLowerCase() == nomeDeletar.toLowerCase()){
             dinos.splice(i, 1)
 
+            salvarDados()
+
             document.getElementById("resultado").innerHTML = `<p class="avisoDeletar">Dino ${nomeDeletar} removido.</p>`
 
             limparForm()
+        }
+        else{
+            document.getElementById("resultado").innerHTML = `<p class="avisoDeletar">Nome não encontrado.</p>`
         }
     }
 }
